@@ -1,0 +1,15 @@
+{
+  "development": {
+    "database": {
+      "host": "127.0.0.1"
+    , "port": 27017
+    , "params": {
+        "auto_reconnect": true
+      }
+    , "db": "chat-dev"
+    }
+  , "server": {
+      "port": 3000
+    }
+  }
+}

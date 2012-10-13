@@ -1,25 +1,20 @@
 /**
-* Simple long polling example
+* Node Simple Chat
+* Server implementation
+* Author: Johann-Michael Thiebaut <johann.thiebaut@gmail.com>
 */
 
-var express = require('express');
-var app = express();
+var express = require('express'),
+    fs = require('fs'),
+    app = express(),
+    config = JSON.parse(fs.readFileSync('config.json').toString());
 
-var defers = [];
+app.set('database', config[app.get('env')].database);
+app.set('server', config[app.get('env')].server);
 
 app.get('/', function(req, res){
-  defers.push(res);
+  res.send("Hello world!");
 });
-
-setInterval(function() {
-  console.log(defers.length);
-
-  for (i in defers) {
-    defers[i].send("Later...");
-  }
-
-  defers = [];
-}, 5000);
 
 app.listen(3000);
 console.log('Listening on port 3000');
