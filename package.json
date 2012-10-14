@@ -1,11 +1,19 @@
 {
   "name": "node-simple-chat",
   "description": "Chat application",
+  "author": "Johann-Michael Thiebaut <johann.thiebaut@gmail.com>",
   "version": "0.0.1",
-  "private": true,
   "dependencies": {
     "express": "3.x",
     "mongodb": "1.1.11",
     "validator": "0.4.12"
+  },
+  "keywords": [
+    "chat",
+    "app"
+  ],
+  "repository": {
+    "type" : "git",
+    "url" : "git://github.com/leafty/node-simple-chat.git"
   }
 }
