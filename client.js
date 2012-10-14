@@ -116,8 +116,8 @@ function initChat() {
   $("#chatform").submit(function() {
     var message = $("#chatform > :input:first").val();
     if (message != "") {
+      $("#chatform > :input:first").val("");
       postMessage(message, function() {
-        $("#chatform > :input:first").val("");
         $("#chatform > :input:first").focus();
       });
     }
