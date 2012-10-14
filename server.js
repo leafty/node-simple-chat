@@ -183,7 +183,7 @@ app.post('/connect', function(req, res) {
 });
 
 app.post('/message', function(req, res) {
-  var user, message;
+  var user, message, event;
 
   if ('user' in req.body && 'message' in req.body) {
     user = sanitize(req.body.user.toString()).xss();
@@ -193,14 +193,27 @@ app.post('/message', function(req, res) {
     message = sanitize(message).entityEncode();
     message = sanitize(message).trim();
     if (user in users) {
-      msg.post(user, message, function(err) {
-        if (err) {
-          console.log(err);
-        }
+      if (message.match('^/me ') && message.length > 1) {
+        event = { type: 'user event', usr: user };
+          message = user + message.substr(3)
+        msg.notify(message, event, function(err) {
+          if (err) {
+            console.log(err);
+          }
 
-        // Notify polling clients
-        notify();
-      });
+          // Notify polling clients
+          notify();
+        });
+      } else {
+        msg.post(user, message, function(err) {
+          if (err) {
+            console.log(err);
+          }
+
+          // Notify polling clients
+          notify();
+        });
+      }
 
       console.log(user + ' posted: ' + message);
       res.send(200);
