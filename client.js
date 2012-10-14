@@ -78,7 +78,7 @@ function connect(user) {
       if (jqXHR.status == 400) {
         init();
         $("#connectdiv").text(jqXHR.responseText).show().fadeOut(2000);
-      } else if (jqXHR.status == 0) {
+      } else if (jqXHR.status == 0 || jqXHR.status == 504) {
         if (time < 5000) {
           close();
           initConnectForm("Disconnected from the server");
@@ -164,7 +164,7 @@ function pollMessages() {
           close();
           initConnectForm("Error while retrieving messages: " + jqXHR.responseText);
         }
-      } else if (jqXHR.status == 0) {
+      } else if (jqXHR.status == 0 || jqXHR.status == 504) {
         if (time < 5000) {
           close();
           initConnectForm("Disconnected from the server");
