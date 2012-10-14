@@ -25,7 +25,7 @@ function initConnectForm(flashMessage) {
       'This is <em>Node Simple Chat</em>, a simple chat' +
       'room written in javascript.' +
       'Source code is available ' +
-      '<ahref="https://github.com/leafty/node-simple-chat">here</a>.' +
+      '<a href="https://github.com/leafty/node-simple-chat">here</a>.' +
       '</div>' +
       '<form id="connectform">' +
         '<label for="connectuser">Username</label>' +
