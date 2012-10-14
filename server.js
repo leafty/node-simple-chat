@@ -212,7 +212,7 @@ app.post('/message', function(req, res) {
   }
 });
 
-msg.connectToDb(config.development.database, function(err) {
+msg.connectToDb(app.get('database'), function(err) {
   if (err) {
     console.log(err);
   } else {

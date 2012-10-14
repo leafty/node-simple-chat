@@ -10,7 +10,19 @@
     }
   , "server": {
       "port": 3000
-    , "cookie-secret": "sf6fqqf46f48fvqslz1ad7c4f6svs1svds"
+    }
+  }
+, "production": {
+    "database": {
+      "host": "127.0.0.1"
+    , "port": 27017
+    , "params": {
+        "auto_reconnect": true
+      }
+    , "db": "chat-prod"
+    }
+  , "server": {
+      "port": 8082
     }
   }
 }
