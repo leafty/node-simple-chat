@@ -1,3 +1,9 @@
+/**
+* Node Simple Chat
+* Client implementation
+* Author: Johann-Michael Thiebaut <johann.thiebaut@gmail.com>
+*/
+
 var user, users, userCount, chatDisplayed,
     lastMessage, ajaxConnect, ajaxPoll;
 
@@ -120,8 +126,10 @@ function initMessages() {
     url: "/messages",
     type: "GET",
     complete: function(jqXHR, textStatus) {
+      var data;
+
       if (jqXHR.status == 200) {
-        var data = JSON.parse(jqXHR.responseText);
+        data = JSON.parse(jqXHR.responseText);
         if ('users' in data && 'messages' in data) {
           data.users.forEach(addUser);
           lastMessage = new Date(data.messages[0].date);
@@ -149,10 +157,10 @@ function pollMessages() {
     url: "/next-messages?d=" + lastMessage.getTime(),
     type: "GET",
     complete: function(jqXHR, textStatus) {
-      var time = (new Date() - start);
+      var time = (new Date() - start), data;
 
       if (jqXHR.status == 200) {
-        var data = JSON.parse(jqXHR.responseText);
+        data = JSON.parse(jqXHR.responseText);
         if ('messages' in data) {
           lastMessage = new Date(data.messages[0].date);
           data.messages.reverse().forEach(function(message) {
@@ -186,7 +194,6 @@ function postMessage(message, callback) {
     data: { user: user, message: message },
     type: "POST",
     complete: function(jqXHR, textStatus) {
-      my_var = jqXHR;
       if (jqXHR.status == 200) {
         callback();
       } else {
@@ -220,9 +227,9 @@ function deleteUser(user) {
 }
 
 function displayMessage(message, userChange) {
-  var usr = message.usr;
-  var msg = message.msg;
-  var date = new Date(message.date);
+  var usr = message.usr,
+      msg = message.msg,
+      date = new Date(message.date);
 
   if (userChange == undefined) {
     userChange = true;
