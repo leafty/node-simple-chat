@@ -114,6 +114,7 @@ function initChat() {
   $("#chatform").submit(function() {
     postMessage($("#chatform > :input:first").val(), function() {
       $("#chatform > :input:first").val("");
+      $("#chatform > :input:first").focus();
     });
     return false;
   });
