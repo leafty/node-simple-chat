@@ -1,0 +1,146 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #222222;
+  color: #eeeeee;
+  margin: 0px;
+  padding: 0px;
+}
+
+input::-webkit-input-placeholder {
+  font-style: italic;
+}
+input:-moz-placeholder {
+  font-style: italic;
+}
+input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+#connect {
+  margin: 50px 50px 50px 50px;
+}
+
+#intro {
+  margin: 20px 0px 20px 0px;
+  font-size: 16pt;
+}
+
+#connectflash {
+  margin: 10px 0px 10px 0px;
+  padding: 10px;
+  background: #cc6666;
+  border: 5px solid #663333;
+  color: #552222;
+}
+
+#connectform label:after {
+  content: ": ";
+}
+
+#connectform input:first-of-type {
+  width: 200px;
+  margin: 0px 10px 0px 20px;
+}
+
+#chatform {
+  background: #eeeeee;
+  padding: 10px;
+  margin: 0px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+
+#chatform > *{
+  opacity: 1;
+}
+
+#chatform input:first-of-type {
+  width: 80%;
+  margin-right: 10px;
+  background: #eeeeee;
+  color: #222222;
+  border: none;
+}
+
+#chatform input::-webkit-input-placeholder {
+  color: #666666;
+}
+#chatform input:-moz-placeholder {
+  color: #666666;
+}
+#chatform input:-ms-input-placeholder {
+  color: #666666;
+}
+
+#chatinfo {
+  background: #224455;
+  margin: 0px;
+  padding: 55px 10px 10px 20px;
+}
+
+#chatinfo ul {
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+}
+
+#chatinfo li {
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+}
+
+#chatinfo li:before {
+  content: ", ";
+}
+
+#chatinfo li:first-of-type:before {
+  content: "";
+}
+
+#chatdisplay {
+  padding: 10px;
+  font-family: "Lucida Console", "Courrier New", monospace;
+}
+
+#chatdisplay .date {
+  color: #405050;
+}
+
+#chatdisplay .date:before, #chatdisplay .time:before {
+  color: #b0b0b0;
+  content: "[";
+}
+
+#chatdisplay .date:after, #chatdisplay .time:after {
+  color: #b0b0b0;
+  content: "]";
+}
+
+#chatdisplay .time {
+  color: #d0a040;
+}
+
+#chatdisplay .notification {
+  color: #b0b0b0;
+  font-style: italic;
+}
+
+#chatdisplay .user {
+  color: #3090a0;
+}
+
+#chatdisplay .user:before {
+  color: #b0b0b0;
+  content: "<";
+}
+
+#chatdisplay .user:after {
+  color: #b0b0b0;
+  content: ">";
+}
+
+#chatdisplay .message {
+}
