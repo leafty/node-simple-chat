@@ -22,6 +22,16 @@ input:-ms-input-placeholder {
   font-style: italic;
 }
 
+a {
+  color: #3090a0;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d0a040;
+  text-decoration: underline;
+}
+
 #connect {
   margin: 50px 50px 50px 50px;
 }
