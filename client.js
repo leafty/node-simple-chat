@@ -112,10 +112,13 @@ function initChat() {
   $("#chatform > :input:first").focus();
 
   $("#chatform").submit(function() {
-    postMessage($("#chatform > :input:first").val(), function() {
-      $("#chatform > :input:first").val("");
-      $("#chatform > :input:first").focus();
-    });
+    var message = $("#chatform > :input:first").val();
+    if (message != "") {
+      postMessage(message, function() {
+        $("#chatform > :input:first").val("");
+        $("#chatform > :input:first").focus();
+      });
+    }
     return false;
   });
 
@@ -174,11 +177,13 @@ function pollMessages() {
           initConnectForm("Error while retrieving messages: " + jqXHR.responseText);
         }
       } else if (jqXHR.status == 0 || jqXHR.status == 504) {
-        if (time < 5000) {
+        if (0 && time < 5000) {
           close();
-          initConnectForm("Disconnected from the server");
+          initConnectForm("Disconnected from the server" + time);
         } else {
-          pollMessages();
+          setTimeout(function() {
+            pollMessages();
+          }, 500);
         }
       } else {
         close();
