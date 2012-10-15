@@ -23,7 +23,7 @@ function initConnectForm(flashMessage) {
   $("body").append('<div id="connect">' +
       '<div id="intro">' +
       'This is <em>Node Simple Chat</em>, a simple chat' +
-      'room written in javascript.' +
+      'room written in javascript. ' +
       'Source code is available ' +
       '<a href="https://github.com/leafty/node-simple-chat">here</a>.' +
       '</div>' +
